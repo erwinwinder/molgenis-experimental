@@ -11,8 +11,8 @@ Implementation based on:
 
 To Run:
 
-* Install clean postgresql
-* Run mvn install
+* Install postgresql
+* Run mvn clean install
 * java -jar target/molgenis-database-2.0-SNAPSHOT.jar server develop.yml
 
 From eclipse:

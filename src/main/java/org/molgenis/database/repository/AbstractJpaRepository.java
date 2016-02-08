@@ -37,6 +37,14 @@ public abstract class AbstractJpaRepository<E extends AbstractJpaEntity> {
 		return em().createQuery(cq).getResultList();
 	}
 
+	protected Optional<E> findByField(String fieldName, Object value) {
+		CriteriaBuilder cb = cb();
+		CriteriaQuery<E> cq = cb.createQuery(entityClass);
+		cq.where(cb.equal(cq.from(entityClass).get(fieldName), value));
+
+		return findFirst(em().createQuery(cq).getResultList());
+	}
+
 	protected Optional<E> findFirst(List<E> entities) {
 		return entities.isEmpty() ? Optional.empty() : Optional.of(entities.get(0));
 	}

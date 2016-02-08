@@ -35,6 +35,11 @@ public class EntityInstance {
 		return ImmutableMap.copyOf(values);
 	}
 
+	@Override
+	public String toString() {
+		return "EntityInstance [entity=" + entity + ", values=" + values + ", id=" + id + "]";
+	}
+
 	public static class Builder {
 		private EntityInstance entityInstance = new EntityInstance();
 

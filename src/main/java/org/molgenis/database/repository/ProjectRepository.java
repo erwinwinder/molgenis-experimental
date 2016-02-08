@@ -4,8 +4,6 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 
 import org.molgenis.database.domain.Project;
 
@@ -19,11 +17,7 @@ public class ProjectRepository extends AbstractJpaRepository<Project> {
 	}
 
 	public Optional<Project> findByName(String name) {
-		CriteriaBuilder cb = cb();
-		CriteriaQuery<Project> cq = cb.createQuery(Project.class);
-		cq.where(cb.equal(cq.from(Project.class).get("name"), name));
-
-		return findFirst(em().createQuery(cq).getResultList());
+		return findByField("name", name);
 	}
 
 }

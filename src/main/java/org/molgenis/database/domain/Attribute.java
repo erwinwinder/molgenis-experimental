@@ -71,6 +71,10 @@ public class Attribute extends AbstractJpaEntity {
 		return entity;
 	}
 
+	void setEntity(MolgenisEntity entity) {
+		this.entity = entity;
+	}
+
 	public static class Builder {
 		Attribute attribute = new Attribute();
 

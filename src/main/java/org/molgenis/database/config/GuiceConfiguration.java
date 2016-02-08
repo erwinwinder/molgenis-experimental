@@ -11,6 +11,8 @@ import org.molgenis.database.ProjectService;
 import org.molgenis.database.repository.EntityInstanceRepository;
 import org.molgenis.database.repository.EntityRepository;
 import org.molgenis.database.repository.ProjectRepository;
+import org.molgenis.database.rest.EntityInstanceResource;
+import org.molgenis.database.rest.MolgenisEntityResource;
 import org.molgenis.database.rest.ProjectResource;
 
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -40,6 +42,8 @@ public class GuiceConfiguration {
 
 	private void configJersey(JerseyEnvironment environment) {
 		environment.register(injector.getInstance(ProjectResource.class));
+		environment.register(injector.getInstance(MolgenisEntityResource.class));
+		environment.register(injector.getInstance(EntityInstanceResource.class));
 	}
 
 	private void configServletEnvironment(ServletEnvironment environment) {

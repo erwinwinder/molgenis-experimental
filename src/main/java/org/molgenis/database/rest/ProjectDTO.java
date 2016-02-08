@@ -5,21 +5,23 @@ import java.util.Map;
 
 import org.molgenis.database.domain.Project;
 
-public class ProjectResponse {
-	private Project project;
+public class ProjectDTO {
+	private String name;
+	private String description;
 	private Map<String, String> links;
 
-	public ProjectResponse(Project project, String selfUrl) {
-		this.project = project;
+	public ProjectDTO(Project project, String selfUrl) {
+		this.name = project.getName();
+		this.description = project.getDescription();
 		links = Collections.singletonMap("self", selfUrl);
 	}
 
 	public String getName() {
-		return project.getName();
+		return name;
 	}
 
 	public String getDescription() {
-		return project.getDescription();
+		return description;
 	}
 
 	public Map<String, String> getLinks() {

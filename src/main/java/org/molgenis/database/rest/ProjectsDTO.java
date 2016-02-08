@@ -6,14 +6,14 @@ import java.util.List;
 
 import org.molgenis.database.domain.Project;
 
-public class ProjectsResponse {
-	private List<ProjectsResponse.ProjectResponse> projects;
+public class ProjectsDTO {
+	private List<ProjectsDTO.ProjectResponse> projects;
 
-	public ProjectsResponse(List<Project> projectEntities) {
-		projects = projectEntities.stream().map(ProjectsResponse.ProjectResponse::new).collect(toList());
+	public ProjectsDTO(List<Project> projectEntities) {
+		projects = projectEntities.stream().map(ProjectsDTO.ProjectResponse::new).collect(toList());
 	}
 
-	public List<ProjectsResponse.ProjectResponse> getProjects() {
+	public List<ProjectsDTO.ProjectResponse> getProjects() {
 		return projects;
 	}
 
